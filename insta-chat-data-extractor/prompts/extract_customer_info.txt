@@ -1,0 +1,121 @@
+You are an expert at extracting structured customer data from multilingual chats. Analyze the messages and return STRICT JSON with:
+
+Required Fields:
+{{
+"customer_name": "string (from participant list, exclude business names)",
+"phone": "string (ALL customer-shared numbers, ignore business/agent numbers)",
+"address": "string (combined from fragments, at least city/street)",
+"products": [{{"name": "string", "quantity": number, "price": "string"}}],
+"discounts": [{{"description": "string", "value": "string"}}],
+"language": "es/en (auto-detect)",
+"inquiry_platform": "string (e.g., WhatsApp/Instagram)",
+"interested": "boolean (true if purchase intent)"
+}}
+
+Extraction Rules (STRICTLY FOLLOW):
+PHONES:
+
+Extract if:
+
+9-digit Peruvian (987654321)
+
+With country code (+51 987654321)
+
+With prefix (cel: 987654321)
+
+Reject if:
+
+Business shared (e.g., "Contáctanos al...")
+
+WhatsApp links (wa.me/...)
+
+ADDRESSES:
+
+Combine fragments (e.g., "Lima" + "Av. Primavera 123" → "Lima, Av. Primavera 123")
+
+If multiple cities are mentioned by the customer (e.g., 'Desde Iquitos', 'estaré en Lima'), include both in order of appearance, separated by commas
+
+Do not translate addresses
+
+Include even partial info (at least city or street)
+
+Always include country name (e.g., "Perú") if mentioned in text or emoji (🇵🇪)
+
+PRODUCTS:
+
+Extract all products that mention a price, even if:
+
+Name is vague ("esto", "conjunto", etc.)
+
+Price is from seller message
+
+Default quantity = 1 if not mentioned
+
+Keep prices exactly as in text (e.g., "S/.60", "21 soles", "$25")
+
+DISCOUNTS:
+
+Include both:
+
+Percentage-based (e.g., "10%", "20% de descuento")
+
+Price-drop-based (e.g., "antes a 35, ahora a 21" → "14 soles off")
+
+Extract even if the word "descuento" isn't mentioned
+
+Format as:
+
+"description": context (e.g., "Top original price 35 soles")
+
+"value": amount (e.g., "14 soles off", "10%")
+
+LANGUAGE:
+
+Set to "es" if most of the chat is in Spanish, "en" if English
+
+INQUIRY PLATFORM:
+
+Use "Instagram" if Instagram links appear
+
+Use "WhatsApp" if wa.me links are shared
+
+Else, infer platform from context
+
+INTERESTED:
+
+Set to true if user shows any purchase intent, like:
+
+"voy a querer", "quiero", "precio del conjunto", "envíame catálogo"
+
+Otherwise, false
+
+FULL Example (Learn from this)
+Input Chat:
+Karen Vasquez: Mi número es +51 987654321 para coordinar la entrega
+Karen Vasquez: Vivo en Av. Arequipa 123, Lima
+Karen Vasquez: Quiero 2 leggings deportivos a S/.60 cada uno
+Karen Vasquez: También quiero 1 polo a S/.19.50
+J-SPORT: Tenemos descuento de Semana Santa: 10% en todos los productos
+Karen Vasquez: Mi dirección completa es: Calle Los Pinos 456, Dpto 301, Miraflores
+Karen Vasquez: WhatsApp business: wa.me/51987654321 (no es mi número real)
+
+Expected JSON Output:
+{{
+"customer_name": "Karen Vasquez",
+"phone": "+51 987654321",
+"address": "Lima, Av. Arequipa 123, Calle Los Pinos 456, Dpto 301, Miraflores",
+"products": [
+{{"name": "leggings deportivos", "quantity": 2, "price": "S/.60"}},
+{{"name": "polo", "quantity": 1, "price": "S/.19.50"}}
+],
+"discounts": [
+{{"description": "Semana Santa", "value": "10%"}}
+],
+"language": "es",
+"inquiry_platform": "Instagram",
+"interested": true
+}}
+
+Analyze and extract the required fields from the following chat:
+
+{chat}

@@ -1,0 +1,99 @@
+{
+  "participants": [
+    {
+      "name": "J-SPORT"
+    },
+    {
+      "name": "Karen Vasquez"
+    }
+  ],
+  "messages": [
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744909595303,
+      "content": "Mi número es +51 987654321 para coordinar la entrega",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744909580000,
+      "content": "Vivo en Av. Arequipa 123, Lima, cerca del Parque Kennedy",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744909570000,
+      "content": "Celular alternativo: 912345678",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "J-SPORT",
+      "timestamp_ms": 1744909613926,
+      "content": "Hasta las 8 pm linda",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744907402843,
+      "content": "Quiero 2 leggings deportivos a S/.60 cada uno",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "J-SPORT",
+      "timestamp_ms": 1744907858318,
+      "content": "Tenemos descuento de Semana Santa: 10% en todos los productos",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744907840000,
+      "content": "Mi dirección completa es: Calle Los Pinos 456, Dpto 301, Miraflores, referencia: frente al colegio San Antonio",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744907830000,
+      "content": "También quiero 1 polo a S/.19.50",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "J-SPORT",
+      "timestamp_ms": 1744907820000,
+      "content": "Contacto de la tienda: 01800123456 (no usar este número)",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744907810000,
+      "content": "¿Tienen descuento por compra mayorista? Necesito 5 unidades",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "J-SPORT",
+      "timestamp_ms": 1744907800000,
+      "content": "Sí, para compras mayores a 3 unidades hay 15% adicional",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744907790000,
+      "content": "Perfecto, entonces llevaré 3 leggings y 2 polos",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744907780000,
+      "content": "WhatsApp business: wa.me/51987654321 (no es mi número real)",
+      "is_geoblocked_for_viewer": false
+    },
+    {
+      "sender_name": "Karen Vasquez",
+      "timestamp_ms": 1744907770000,
+      "content": "Para envíos, mi dirección en provincia es: Jr. Lima 789, Trujillo",
+      "is_geoblocked_for_viewer": false
+    }
+  ],
+  "title": "Karen Vasquez",
+  "is_still_participant": true,
+  "thread_path": "inbox/karenvasquez_294902069106263"
+}

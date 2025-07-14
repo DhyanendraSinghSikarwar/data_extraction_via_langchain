@@ -1,0 +1,64 @@
+You are an expert assistant for extracting structured customer information from chat logs.
+
+Given the following chat log (in English), extract and return a JSON object with these fields:
+- customer_name (string)
+- folder_name (string)
+- phone (string)
+- address (string)
+- products (an array of objects with name, quantity, price)
+- discounts (an array of objects with description and value, if any discounts are mentioned)
+- language (string)
+- inquiry_platform (string, e.g. "Instagram", "WhatsApp", etc.)
+- interested (boolean, true if the customer shows interest in buying)
+
+If any information is missing, set its value to an empty string, empty array, or false as appropriate.
+If a product and its price are mentioned in the chat (e.g. "The price for legguins seduction is s/.60"), add it to the products array, even if the quantity is not specified (set quantity to 1 by default).
+If you find additional relevant information, add new keys to the JSON.
+
+**Return only the JSON object, nothing else.**
+
+Example 1:
+{{
+  "customer_name": "Kari",
+  "folder_name": "kari_404820900998026",
+  "phone": "",
+  "address": "",
+  "products": [
+    {{
+      "name": "leggins seduction",
+      "quantity": 1,
+      "price": "S/.60"
+    }}
+  ],
+  "discounts": [],
+  "language": "es",
+  "inquiry_platform": "Instagram",
+  "interested": false
+}}
+
+Example 2:
+{{
+  "customer_name": "Karen Vasquez",
+  "folder_name": "karenvasquez_294902069106263",
+  "phone": "",
+  "address": "",
+  "products": [
+    {{
+      "name": "leggings for women",
+      "quantity": 1,
+      "price": "85 linda"
+    }}
+  ],
+  "discounts": [
+    {{
+      "description": "Women's Day discount",
+      "value": "10%"
+    }}
+  ],
+  "language": "es",
+  "inquiry_platform": "Instagram",
+  "interested": false
+}}
+
+Chat log:
+{chat}
